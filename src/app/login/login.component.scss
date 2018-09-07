@@ -1,4 +1,5 @@
 $topnav-background-color: #222;
+
 :host {
     display: block;
 }
@@ -9,7 +10,14 @@ $topnav-background-color: #222;
     right: 0;
     bottom: 0;
     overflow: auto;
-    background: $topnav-background-color;
+    background: #1e5799; 
+    background: -moz-linear-gradient(top, #1e5799 0%, #7db9e8 100%); 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(100%,#7db9e8)); 
+    background: -webkit-linear-gradient(top, #1e5799 0%,#7db9e8 100%); 
+    background: -o-linear-gradient(top, #1e5799 0%,#7db9e8 100%); 
+    background: -ms-linear-gradient(top, #1e5799 0%,#7db9e8 100%); 
+    background: linear-gradient(to bottom, #1e5799 0%,#7db9e8 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#1e5799, endColorstr=#7db9e8,GradientType=0 ); 
+    background-attachment: fixed;
     text-align: center;
     color: #fff;
     padding: 3em;
@@ -39,7 +47,7 @@ $topnav-background-color: #222;
         -webkit-border-radius: 50px;
         border-radius: 50px;
         color: rgba(255, 255, 255, 0.8);
-        background: $topnav-background-color;
+        background: #1e5799;
         border: 2px solid rgba(255, 255, 255, 0.8);
         font-size: 18px;
         line-height: 40px;
@@ -88,8 +96,7 @@ $topnav-background-color: #222;
         padding: 40px 0;
     }
     .user-avatar {
-        -webkit-border-radius: 50%;
-        border-radius: 50%;
-        border: 2px solid #fff;
+        width: 500px;
+        height: 150px;
     }
 }
