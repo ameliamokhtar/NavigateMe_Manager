@@ -3,12 +3,12 @@ import { routerTransition } from '../../router.animations';
 import { Service } from '../../service/service';
 
 @Component({
-  selector: 'app-tables',
-  templateUrl: './tables.component.html',
-  styleUrls: ['./tables.component.scss'],
+  selector: 'app-guests',
+  templateUrl: './guests.component.html',
+  styleUrls: ['./guests.component.scss'],
   animations: [routerTransition()]
 })
-export class TablesComponent implements OnInit {
+export class GuestsComponent implements OnInit {
   constructor(public service: Service) { }
   data: any;
   settings:any;

@@ -1,4 +1,4 @@
-$topnav-background-color: #022740;
+$topnav-background-color: #191A1A;
 .sidebar {
     border-radius: 0;
     position: fixed;
@@ -31,6 +31,7 @@ $topnav-background-color: #022740;
             text-decoration: none;
             .fa {
                 margin-right: 10px;
+                color: #999;
             }
         }
         a:hover {
@@ -167,7 +168,7 @@ $topnav-background-color: #022740;
     padding: 12px;
     bottom: 0;
     color: #999;
-    background: #212529;
+    background: #191A1A;
     i {
         font-size: 23px;
     }
@@ -175,7 +176,7 @@ $topnav-background-color: #022740;
         background: darken($topnav-background-color, 5%);
         color: #fff;
     }
-    border-top: 1px solid #999;
+    border-top: 0px solid #999;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -ms-transition: all 0.2s ease-in-out;

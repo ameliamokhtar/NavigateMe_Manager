@@ -4,10 +4,41 @@
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;
             <span>{{ 'Dashboard' | translate }}</span>
         </a>
-        <a [routerLink]="['/tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+
+        <!--<a [routerLink]="['/tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-table"></i>&nbsp;
             <span>{{ 'Users' | translate }}</span>
-        </a>
+        </a>-->
+
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('pages')">
+                <i class="fa fa-fw fa-table"></i>&nbsp;
+                <span>{{ 'Users Info' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'pages'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <i class="fa fa-plus"></i>&nbsp;
+                            <span>{{ 'Staffs' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/students']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <i class="fa fa-plus"></i>&nbsp;
+                            <span>{{ 'Students' | translate }}</span>
+                        </a>
+                    </li>
+                    <!--<li>
+                        <a [routerLink]="['/guests']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <i class="fa fa-plus"></i>&nbsp;
+                            <span>{{ 'Guest' | translate }}</span>
+                        </a>
+                    </li>-->
+                </ul>
+            </li>
+        </div>
+
         <div class="nested-menu">
             <a class="list-group-item" (click)="addExpandClass('pages')">
                 <i class="fa fa-fw fa-map-marker"></i>&nbsp;
@@ -17,25 +48,25 @@
                 <ul class="submenu">
                     <li>
                         <a [routerLink]="['/staffs']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-                            <i class="fa fa-caret-right"></i>&nbsp;
+                            <i class="fa fa-plus"></i>&nbsp;
                             <span>{{ 'Staffs' | translate }}</span>
                         </a>
                     </li>
                     <li>
                         <a [routerLink]="['/offices']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-                            <i class="fa fa-caret-right"></i>&nbsp;
+                            <i class="fa fa-plus"></i>&nbsp;
                             <span>{{ 'Offices' | translate }}</span>
                         </a>
                     </li>
                     <li>
                         <a [routerLink]="['/classrooms']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-                            <i class="fa fa-caret-right"></i>&nbsp;
+                            <i class="fa fa-plus"></i>&nbsp;
                             <span>{{ 'Classrooms' | translate }}</span>
                         </a>
                     </li>
                     <li>
                         <a [routerLink]="['/facilities']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-                            <i class="fa fa-caret-right"></i>&nbsp;
+                            <i class="fa fa-plus"></i>&nbsp;
                             <span>{{ 'Facilities' | translate }}</span>
                         </a>
                     </li>

@@ -9,6 +9,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
+import { LayoutModule } from './layout/layout.module';
+import { SignupModule } from './signup/signup.module';
+import { LoginModule } from './login/login.module';
+import { Service } from './service/service';
+import { HttpModule } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
 // import { ServicesModule } from '../app/service/service.module'
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -26,7 +32,9 @@ export const createTranslateLoader = (http: HttpClient) => {
         CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
+        ReactiveFormsModule,
         HttpClientModule,
+        HttpModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -34,10 +42,13 @@ export const createTranslateLoader = (http: HttpClient) => {
                 deps: [HttpClient]
             }
         }),
-        AppRoutingModule
+        AppRoutingModule,
+        LayoutModule,
+        SignupModule,
+        LoginModule
     ],
     declarations: [AppComponent],
-    providers: [ AuthGuard],
+    providers: [ AuthGuard,Service],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,18 +3,17 @@ import { routerTransition } from '../../router.animations';
 import { Service } from '../../service/service';
 
 @Component({
-  selector: 'app-tables',
-  templateUrl: './tables.component.html',
-  styleUrls: ['./tables.component.scss'],
+  selector: 'app-students',
+  templateUrl: './students.component.html',
+  styleUrls: ['./students.component.scss'],
   animations: [routerTransition()]
 })
-export class TablesComponent implements OnInit {
+export class StudentsComponent implements OnInit {
   constructor(public service: Service) { }
   data: any;
   settings:any;
   
-
-  ngOnInit() {
+ngOnInit() {
     this.init();
   }
 
@@ -30,19 +29,13 @@ export class TablesComponent implements OnInit {
         confirmSave: true,
       },
       columns: {
-        staff_id: {
-          title: 'Staff ID',
+        student_id: {
+          title: 'Student ID',
           editable: false,
           addable: false,
         },
         full_name: {
           title: 'Full Name'
-        },
-        position: {
-          title: 'Position'
-        },
-        address: {
-          title: 'Address'
         },
         phone_num: {
           title: 'Phone Number'
@@ -53,24 +46,22 @@ export class TablesComponent implements OnInit {
         }
       },
     };
-    this.service.getStaff().subscribe(staff => {
-      console.log(staff);
-      if (staff.successful) {
-        this.data = staff.staffs;
+    this.service.getStudent().subscribe(student => {
+      console.log(student);
+      if (student.successful) {
+        this.data = student.students;
       }
     })
   }
 
   onCreateConfirm(event) {
     let userData = "full_name=" + event.newData.full_name +
-      "&position=" + event.newData.position +
-      "&address=" + event.newData.address +
       "&phone_num=" + event.newData.phone_num +
       "&email=" + event.newData.email +
       "&requestType=1";
 
     console.log(userData)
-    this.service.addStaff(userData).subscribe(res => {
+    this.service.addStudent(userData).subscribe(res => {
       console.log(res)
       this.init();
     })
@@ -79,14 +70,12 @@ export class TablesComponent implements OnInit {
   onSaveConfirm(event) {
     console.log(event)
     let userData = "full_name=" + event.newData.full_name +
-      "&position=" + event.newData.position +
-      "&address=" + event.newData.address +
       "&phone_num=" + event.newData.phone_num +
       "&email=" + event.newData.email +
       "&requestType=2";
 
     console.log(userData)
-    this.service.addStaff(userData).subscribe(res => {
+    this.service.addStudent(userData).subscribe(res => {
       console.log(res)
       this.init();
     })
@@ -95,14 +84,12 @@ export class TablesComponent implements OnInit {
   onDeleteConfirm(event) {
     console.log(event)
     let userData = "full_name=" + event.data.full_name +
-      "&position=" + event.data.position +
-      "&address=" + event.data.address +
       "&phone_num=" + event.data.phone_num +
       "&email=" + event.data.email +
       "&requestType=3";
 
     console.log(userData)
-    this.service.addStaff(userData).subscribe(res => {
+    this.service.addStudent(userData).subscribe(res => {
       console.log(res)
       this.init();
     })
